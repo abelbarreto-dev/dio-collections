@@ -4,7 +4,6 @@ import edu.list.tasks.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class ListTasks implements IListTasks {
     private List<Task> tasks;
@@ -26,17 +25,18 @@ public class ListTasks implements IListTasks {
 
     @Override
     public void removerTarefa(String descricao) {
-        AtomicReference<Task> foundTask = new AtomicReference<>();
-        this.getTasks().forEach((Task task) -> {
-            if (task.getDescricao().equals(descricao)) {
-                foundTask.set(task);
-            }
-        });
+        List<Task> foundTask = new ArrayList<>();
 
-        if (foundTask.get() == null)
+        for (Task task : this.getTasks()) {
+            if (task.getDescricao().equalsIgnoreCase(descricao)) {
+                foundTask.add(task);
+            }
+        }
+
+        if (foundTask.isEmpty())
             System.out.println("Tarefa não encontrada");
         else {
-            this.getTasks().remove(foundTask.get());
+            this.getTasks().removeAll(foundTask);
             System.out.println("Tarefa removida!");
         }
     }
