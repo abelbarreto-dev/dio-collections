@@ -42,14 +42,10 @@ public class ListTasks implements IListTasks {
     }
 
     @Override
-    public List<String> obsterDescricaoTarefas() {
-        List<String> descricoes = new ArrayList<>();
-
+    public void obsterDescricaoTarefas() {
         this.getTasks().forEach((Task task) -> {
-            descricoes.add(task.getDescricao());
+            System.out.println(task.getDescricao());
         });
-
-        return descricoes;
     }
 
     @Override

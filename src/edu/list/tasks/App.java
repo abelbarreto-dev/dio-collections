@@ -9,11 +9,11 @@ public class App {
 
         lists.adicionarTarefas("hoje caminhar na serra");
         lists.adicionarTarefas("ir para a faculdade");
-        lists.obsterDescricaoTarefas().forEach(System.out::println);
+        lists.obsterDescricaoTarefas();
         System.out.println("Quantidade de Tarefas: " + lists.contarTarefas());
         System.out.println("=================");
         lists.removerTarefa("ir para a faculdade");
-        lists.obsterDescricaoTarefas().forEach(System.out::println);
+        lists.obsterDescricaoTarefas();
         System.out.println("Quantidade de Tarefas: " + lists.contarTarefas());
     }
 }
