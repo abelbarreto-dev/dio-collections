@@ -33,20 +33,21 @@ public class SetGuest implements ISetGuest {
             return;
         }
 
-        Set<Guest> foundGuests = new HashSet<Guest>();
+        Guest foundGuest = null;
 
         for (Guest guest : this.getGuests()) {
             if (guest.getInviteCode() == inviteCode) {
-                foundGuests.add(guest);
+                foundGuest = guest;
+                break;
             }
         }
 
-        if (foundGuests.isEmpty()) {
+        if (foundGuest == null) {
             System.out.println("This guest wasn't found!");
             return;
         }
 
-        this.getGuests().removeAll(foundGuests);
+        this.getGuests().remove(foundGuest);
         System.out.println("Guest Removed!");
     }
 
