@@ -8,6 +8,7 @@ public class App {
 
         schedule.addContact("lucas", 1146);
         schedule.addContact("abel", 1600);
+        schedule.addContact("abel carvalho", 2000);
         schedule.addContact("abel", 1998);
 
         schedule.showContacts();

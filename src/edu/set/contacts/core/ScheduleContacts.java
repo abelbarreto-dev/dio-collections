@@ -36,13 +36,12 @@ public class ScheduleContacts {
         this.getContacts().forEach(System.out::println);
     }
 
-    public Contact findByName(String name) {
-        Contact foundContact = null;
+    public Set<Contact> findByName(String name) {
+        Set<Contact> foundContact = new HashSet<>();
 
         for (Contact contact : this.getContacts()) {
-            if (contact.getName().equalsIgnoreCase(name)) {
-                foundContact = contact;
-                break;
+            if (contact.getName().startsWith(name)) {
+                foundContact.add(contact);
             }
         }
 
@@ -58,7 +57,7 @@ public class ScheduleContacts {
         }
 
         for (Contact varContact : this.getContacts()) {
-            if (varContact.getName().equals(contact.getName())) {
+            if (varContact.getName().equalsIgnoreCase(contact.getName())) {
                 varContact.setPhone(contact.getPhone());
                 break;
             }
