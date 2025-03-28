@@ -1,7 +1,5 @@
 package edu.list.people.model;
 
-import java.util.Comparator;
-
 public class People implements Comparable<People> {
     private String name;
     private int age;
